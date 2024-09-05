@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_brand_view_form" model="ir.ui.view">
+        <field name="name">product.brand.view.form</field>
+        <field name="model">product.brand</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="state"/>
+                            <field name="date"/>
+                            <field name="partner_ids"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="product_brand_view_tree" model="ir.ui.view">
+        <field name="name">product.brand.view.tree</field>
+        <field name="model">product.brand</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_brand_action" model="ir.actions.act_window">
+        <field name="name">Product Brand</field>
+        <field name="res_model">product.brand</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[
+            
+        ]</field>
+        <field name="context">{
+            'default_name': 'Ferrari',    
+        }</field>
+    </record>
+
+    <menuitem
+        id="product_brand_menu"
+        name="Product Brands"
+        action="product_brand_action"
+        parent="sale.prod_config_main"
+        sequence="100"/>
+</odoo>
