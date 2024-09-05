@@ -117,3 +117,10 @@ dmypy.json
 cython_debug/
 
 .odoorc
+
+.vscode
+
+*.zip
+*.conf
+olympics_data_import/*.csv
+olympics_data_import/*.sh

@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "path": "absolute/path/to/odoo_folder/odoo_insider"
+    },
+    {
+      "path": "absolute/path/to/odoo_folder/odoo"
+    },
+    {
+      "path": "absolute/path/to/odoo_folder/enterprise"
+    }
+  ],
+  "settings": {
+    "python.languageServer": "None"
+  }
+}

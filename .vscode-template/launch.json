@@ -1,0 +1,43 @@
+{
+  "configurations": [
+    {
+      "name": "Run DB",
+      "type": "python",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "python": "PATH_TO_PYTHON",
+      "program": "absolute/path/to/odoo_folder/odoo/odoo-bin",
+      "args": [
+        "--config=absolute/path/to/odoo_folder/odoo_insider/.odoorc",
+        "--database=odoo_insider",
+        "--dev=xml",
+        "--init=${input:odoo_modules}"
+      ]
+    },
+    {
+      "name": "Tests",
+      "type": "python",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "program": "absolute/path/to/odoo_folder/odoo/odoo-bin",
+      "args": [
+        "--config=absolute/path/to/odoo_folder/odoo_insider/.odoorc",
+        "--database=odoo_insider",
+        "--init=TOADD",
+        "--test-tags=/TOADD"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "id": "odoo_modules",
+      "type": "promptString",
+      "description": "Odoo modules to update"
+    },
+    {
+      "id": "test_tags",
+      "type": "promptString",
+      "description": "Test Tags to run"
+    }
+  ]
+}

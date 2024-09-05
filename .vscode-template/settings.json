@@ -1,0 +1,13 @@
+{
+  "python.autoComplete.extraPaths": [
+    "absolute/path/to/odoo_folder/odoo",
+    "absolute/path/to/odoo_folder/enterprise"
+  ],
+  "python.analysis.extraPaths": [
+    "absolute/path/to/odoo_folder/odoo",
+    "absolute/path/to/odoo_folder/enterprise"
+  ],
+  "python.defaultInterpreterPath": "absolute/path/to/python/bin/python",
+  "python.testing.pytestEnabled": false,
+  "python.testing.unittestEnabled": true
+}
