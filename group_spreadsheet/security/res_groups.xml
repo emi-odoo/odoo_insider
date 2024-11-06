@@ -1,0 +1,5 @@
+<odoo>
+    <record id="allow_export_spreadsheet" model="res.groups">
+        <field name="name">Export Spreadsheet</field>
+    </record>
+</odoo>
