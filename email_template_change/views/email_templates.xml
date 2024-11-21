@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="mail_notification_layout_inherit" inherit_id="mail.mail_notification_layout">
+        <xpath expr="//span[@id='mail_unfollow']/.." position="inside">
+            <div t-if="company and company.x_icon">
+                <img t-att-src="'/logo.png?company=%s' % company.id" style="padding: 0px; margin: 0px; height: 48px;" t-att-alt="'%s' % company.name"/>
+                 <img t-att-src="'/web/image/res.company/' + str(company.id) + '/logo'" style=""/> <!-- add here the styling if needed-->
+                 <img t-att-src="'/web/image/res.company/' + str(company.id) + '/x_icon'"/>
+            </div>
+        </xpath>
+    </template>
+    <template id="sale_order_timesheet">
+
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout">
+                <div><span t-field="o.name"/></div>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_sale_order_timesheet" model="ir.actions.report">
+        <field name="name">Custom Timesheet</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sale_order_timesheet</field>
+        <field name="report_file">sale_order_timesheet</field>
+        <field name="print_report_name">'%s' % object.name</field>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

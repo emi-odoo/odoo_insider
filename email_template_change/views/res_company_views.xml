@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="res_company_form_inherit_email_template_change" model="ir.ui.view">
+    <field name="inherit_id" ref="base.view_company_form"/>
+    <field name="model">res.company</field>
+    <field name="name">res.company.form.inherit</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='phone']" position="after">
+          <field widget="image" name="x_icon"/>
+        </xpath>
+      </data>
+    </field>
+  </record>
+</odoo>

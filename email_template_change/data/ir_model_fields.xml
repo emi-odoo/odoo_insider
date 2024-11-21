@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="x_icon" model="ir.model.fields" >
+    <field name="ttype">binary</field>
+    <field name="field_description">Icon</field>
+    <field name="model">res.company</field>
+    <field name="model_id" ref="base.model_res_company"/>
+    <field name="name">x_icon</field>
+  </record>
+</odoo>
