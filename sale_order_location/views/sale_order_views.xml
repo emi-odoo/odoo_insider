@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_order_form_inherit" model="ir.ui.view">
+    <field name="name">sale.order.form.inherit</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='order_line']//list" position="inside">
+            <field name="longitude"/>
+            <field name="latitude"/>
+            <widget name="assign_geolocation"/>
+        </xpath>
+        <xpath expr="//field[@name='order_line']//kanban//field[@name='price_unit']/." position="after">
+            <div class="text-muted">
+                Latitude:
+                <field name="latitude"/>
+            </div>
+            <div class="text-muted">
+                Longitude:
+                <field name="longitude"/>
+            </div>
+            <widget name="assign_geolocation"/>
+        </xpath>
+    </field>
+    </record>
+
+</odoo>
