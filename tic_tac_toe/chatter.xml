@@ -1,0 +1,7 @@
+<templates>
+    <t t-inherit="mail.Chatter" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o-mail-Chatter-content')]" position="before">
+            <TicTacToe/>
+        </xpath>
+    </t>
+</templates>

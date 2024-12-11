@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="tic_tac_toe.TicTacToe">
+        <h1 t-out="winner"/>
+        <t t-foreach="board" t-as="column" t-key="column_index">
+            <div style="height: 150px;" class="row my-5">
+                <t t-foreach="column" t-as="row" t-key="row_index">
+                    <div class="col-lg-3">
+                        <button class="w-100 h-100" t-on-click="() => this.play(column_index, row_index)">
+                            <t t-out="row"/>
+                        </button>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </t>
+</templates>

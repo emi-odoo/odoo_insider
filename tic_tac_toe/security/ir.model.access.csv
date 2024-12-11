@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tic_tac_toe,tic.tac.toe.access,model_tic_tac_toe,base.group_user,1,1,1,1

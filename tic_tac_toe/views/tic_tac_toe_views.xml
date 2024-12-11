@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="tic_tac_toe_view_form" model="ir.ui.view">
+        <field name="name">tic.tac.toe.view.form</field>
+        <field name="model">tic.tac.toe</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="player1"/>
+                        
+                        <field name="player2"/>
+                    </group>
+
+                    <widget name="tic_tac_toe" invisible="not player1 or not player2"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tic_tac_toe_action" model="ir.actions.act_window">
+        <field name="name">Play NOW!</field>
+        <field name="view_mode">form</field>
+        <field name="res_model">tic.tac.toe</field>
+    </record>
+
+    <menuitem id="tic_tac_toe_menu_act" name="Tic Tac Toe" action="tic_tac_toe_action" sequence="1"/>
+</odoo>
