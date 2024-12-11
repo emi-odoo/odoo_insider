@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t  t-name="print_directly.PrintDirectlyCogMenu">
+        <DropdownItem onSelected.bind="printImmediately">
+            <i class="fa fa-hand-o-right me-1" aria-hidden="true"></i> Print Directly
+        </DropdownItem>
+    </t>
+
+</templates>
