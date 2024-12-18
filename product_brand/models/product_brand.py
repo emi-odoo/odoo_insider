@@ -7,7 +7,7 @@ class ProductBrand(models.Model):
 
     display_name = fields.Char(string="Display Name", compute="_compute_display_name")
 
-    name = fields.Char(string="Name", required=True)
+    name = fields.Char(string="Name", required=True, translate=True)
     description = fields.Text(string="Description")
     partner_ids = fields.Many2many("res.partner")
 

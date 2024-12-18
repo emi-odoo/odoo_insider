@@ -9,11 +9,11 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="name"/>
-                            <field name="description"/>
-                            <field name="state"/>
-                            <field name="date"/>
-                            <field name="partner_ids"/>
+                            <field name="name" />
+                            <field name="description" />
+                            <field name="state" />
+                            <field name="date" />
+                            <field name="partner_ids" />
                         </group>
                     </group>
                 </sheet>
@@ -24,23 +24,23 @@
         <field name="name">product.brand.view.tree</field>
         <field name="model">product.brand</field>
         <field name="arch" type="xml">
-            <tree string="">
-                <field name="name"/>
-                <field name="description"/>
-            </tree>
+            <list string="">
+                <field name="name" />
+                <field name="description" />
+            </list>
         </field>
     </record>
 
     <record id="product_brand_action" model="ir.actions.act_window">
         <field name="name">Product Brand</field>
         <field name="res_model">product.brand</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="domain">[
-            
-        ]</field>
+
+            ]</field>
         <field name="context">{
-            'default_name': 'Ferrari',    
-        }</field>
+            'default_name': 'Ferrari',
+            }</field>
     </record>
 
     <menuitem
@@ -48,5 +48,5 @@
         name="Product Brands"
         action="product_brand_action"
         parent="sale.prod_config_main"
-        sequence="100"/>
+        sequence="100" />
 </odoo>
