@@ -1,0 +1,2 @@
+ odoo_import_thread.py -c config.conf --file=/Users/emanuelemaruzzi/projects/ps-projects/18.0/odoo_insider/sale_data_import/output_order_lines.csv --model=sale.order.line --encoding=utf-8 --worker=2 --size=10 --groupby=order_id/id --ignore= --sep=";" 
+ odoo_import_thread.py -c config.conf --fail --file=/Users/emanuelemaruzzi/projects/ps-projects/18.0/odoo_insider/sale_data_import/output_order_lines.csv --model=sale.order.line --encoding=utf-8 --ignore= --sep=";" 

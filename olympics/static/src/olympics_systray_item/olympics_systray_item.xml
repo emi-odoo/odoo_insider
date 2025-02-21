@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="olympics.OlympicsSystrayItem">
+        <button class="btn fa fa-plus" t-attf-class="#{olympics_service?.ongoingEvents > 0 ? 'ongoing_olympics_events' : 'no_olympics_events'}" t-on-click="openOngoingEvents" t-att-title="olympics_service.ongoingEvents + ' Ongoing Events'"/>
+    </t>
+</templates>

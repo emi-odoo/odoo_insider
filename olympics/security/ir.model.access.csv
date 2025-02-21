@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+olympics.access_olympics_result,access_olympics_result,olympics.model_olympics_result,base.group_user,1,1,1,1
+olympics.access_olympics_event,access_olympics_event,olympics.model_olympics_event,base.group_user,1,1,1,1
+olympics.access_olympics_olympics,access_olympics_olympics,olympics.model_olympics_olympics,base.group_user,1,1,1,1

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="olympics_main_menu"
+        name="Olympics"
+        action="olympics_action"
+        sequence="10">
+        <menuitem
+            id="olympics_menu"
+            name="Olympics"
+            action="olympics_action"
+            sequence="10"/>
+        <menuitem
+            id="olympics_event_menu"
+            name="Events"
+            action="olympics.olympics_event_action"
+            sequence="20"/>
+        <menuitem
+            id="olympics_results_menu"
+            name="Results"
+            action="olympics.olympics_result_action"
+            sequence="30"/>
+    </menuitem>
+
+</odoo>

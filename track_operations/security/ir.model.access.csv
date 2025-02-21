@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+track_operations.access_track_operation,access_track_operation,track_operations.model_track_operation,base.group_user,1,0,0,0
