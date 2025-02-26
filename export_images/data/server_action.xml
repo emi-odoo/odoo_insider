@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="download_partner_pictures" model="ir.actions.server">
+            <field name="name">Download pictures</field>
+            <field name="model_id" ref="base.model_res_partner" />
+            <field name="binding_model_id" ref="base.model_res_partner" />
+            <field name="state">code</field>
+            <field name="code">
+                action = {'type': 'ir.actions.client', 'tag': 'action_download_contact_pictures',
+                'params': {'partner_ids': records.filtered('image_1920').mapped(lambda p: (p.id, p.name))}}
+            </field>
+        </record>
+    </data>
+</odoo>

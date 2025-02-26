@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_saleorder_document" name="Sale Order Report Customization"
+        inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@id='informations']" position="before">
+            <div class="row">
+                <div class="col-6">
+                    <span>Buongiorno</span>
+                </div>
+                <div class="col-6">
+                    <span>Good Morning</span>
+                    <span t-out="new_variable" />
+                    <t t-set="other_variable" t-value="doc._my_method()" />
+                    <span t-out="other_variable" />
+                    <span t-field="doc.name" />
+                    <span>QUELLO CHE VOGLIO</span>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//div[@id='informations']" position="attributes">
+            <attribute name="class">d-none</attribute>
+        </xpath>
+
+    </template>
+
+</odoo>

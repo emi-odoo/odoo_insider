@@ -15,19 +15,16 @@ import { loadJS } from "@web/core/assets";
 const randomNum = () => Math.floor(Math.random() * (235 - 52 + 1) + 52);
 
 const randomRGB = () => `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
+
 export class GraphOrder extends Component {
   static template = "sale_order_graph.GraphOrder";
   static props = {
     ...standardWidgetProps,
   };
   setup() {
-    this.canvasRef = useRef("canvas");
+    this.canvasRef = useRef("canvas_graph");
     this.orm = useService("orm");
     this.graphData = useState({ data: [] });
-    useRecordObserver(async (record) => {
-      console.log("record", record);
-      await this.renderChart(record);
-    });
     onWillStart(() => loadJS("/web/static/lib/Chart/Chart.js"));
     onMounted(() => {
       this.renderChart(this.props.record);
@@ -35,6 +32,14 @@ export class GraphOrder extends Component {
     onWillUnmount(() => {
       this?.chart.destroy();
     });
+    useRecordObserver(async (record) => {
+      console.log("record", record);
+      await this.renderChart(record);
+    });
+  }
+
+  get parola() {
+    return "ciao";
   }
 
   async _loadGraphData(record) {
