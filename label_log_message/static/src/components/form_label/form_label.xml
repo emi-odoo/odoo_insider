@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="label_log_message.FormLabel" t-inherit="web.FormLabel" t-inherit-mode="extension">
+        <label position="attributes">
+            <attribute name="t-on-mouseover">onLabelOver</attribute>
+            <attribute name="t-on-mouseout">onLabelOut</attribute>
+        </label>
+        <xpath expr="//t[@t-esc='props.string']" position="after">
+            <span> TEST </span>
+        </xpath>
+    </t>
+
+</templates>
