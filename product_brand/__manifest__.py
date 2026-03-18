@@ -3,8 +3,12 @@
     "author": "Odoo",
     "website": "https://www.odoo.com",
     "category": "Administration",
-    "version": "18.0.1.0.1",
-    "depends": ["sale"],
+    "version": "19.0.1.0.1",
+    "depends": [
+        "sale_purchase",
+        "stock_barcode",
+    ],
+    "application": True,
     "data": [
         "data/product_brand.xml",
         # SECURITY
