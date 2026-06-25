@@ -46,17 +46,17 @@ export class GraphOrder extends Component {
     const { resId } = record;
     const groups = await this.orm.call("sale.order.line", "read_group", [
       [["order_id", "=", resId]],
-      ["product_uom"],
-      ["product_uom"],
+      ["product_uom_id"],
+      ["product_uom_id"],
     ]);
     // resulting object
     /* [
       {
-          "product_uom": [
+          "product_uom_id": [
               1,
               "Units"
           ],
-          "product_uom_count": 3,
+          "product_uom_id_count": 3,
           "__domain": [
               "&",
               [
@@ -65,7 +65,7 @@ export class GraphOrder extends Component {
                   6
               ],
               [
-                  "product_uom",
+                  "product_uom_id",
                   "=",
                   1
               ]
@@ -78,7 +78,7 @@ export class GraphOrder extends Component {
     }
     */
     const data = groups.reduce((acc, group) => {
-      acc[group.product_uom[1]] = group.product_uom_count;
+      acc[group.product_uom_id[1]] = group.product_uom_id_count;
       return acc;
     }, {});
     const labels = Object.keys(data);
@@ -107,26 +107,6 @@ export class GraphOrder extends Component {
       type: "pie",
       responsive: true,
       data: await this._loadGraphData(record),
-      options: {
-        onClick: (event, elements) => {
-          console.log("called");
-          return;
-          const element_indexes = elements.map((el) => el._index);
-          const states = Object.keys(this.props.data).filter((el, index) =>
-            element_indexes.includes(index)
-          );
-          return this.action.doAction({
-            type: "ir.actions.act_window",
-            name: `Missions: ${states.join(",")}`,
-            res_model: "spaceship.management.mission",
-            domain: [["state", "in", states]],
-            views: [
-              [false, "list"],
-              [false, "form"],
-            ],
-          });
-        },
-      },
     });
   }
 }
