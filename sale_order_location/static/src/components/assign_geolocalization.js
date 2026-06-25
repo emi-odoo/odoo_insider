@@ -24,8 +24,19 @@ export class AssignGeolocalization extends Component {
   }
 
   async onAssignGeolocationClicked() {
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0,
+    };
+    function error(err) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
     navigator.geolocation.getCurrentPosition((coordinates) =>
-      this._setCoordinates(coordinates)
+      this._setCoordinates(coordinates),
+      error,
+      options
+    
     );
   }
 }
