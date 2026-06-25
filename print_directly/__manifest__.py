@@ -13,4 +13,7 @@
             "print_directly/static/src/components/**/*",
         ],
     },
+    # usage of this module has to be checked again,
+    # might not work as expected
+    "installable": False,
 }
