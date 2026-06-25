@@ -3,7 +3,7 @@
     "summary": """
         Export images contacts
     """,
-    "version": "18.0.0.1.0",
+    "version": "19.0.0.1.0",
     "depends": ["contacts"],
     "data": [
         # VIEWS
@@ -16,7 +16,7 @@
             # https://github.com/gildas-lormeau/zip.js/tree/master
             # current version:
             # https://github.com/gildas-lormeau/zip.js/releases/tag/v2.7.57
-            "export_images/static/src/lib/zip/zip.min.js",
+            "export_images/static/lib/zip/zip.min.js",
         ],
         "web.assets_backend": [
             "export_images/static/src/js/download_pictures.js",
