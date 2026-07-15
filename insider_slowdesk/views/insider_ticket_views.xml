@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_insider_ticket_list" model="ir.ui.view">
+        <field name="name">insider.ticket.list</field>
+        <field name="model">insider.ticket</field>
+        <field name="arch" type="xml">
+            <!-- PERF BUG #7 -->
+            <list>
+                <field name="reference"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="state"/>
+                <field name="priority" widget="priority"/>
+                <field name="sla_deadline"/>
+                <field name="is_late"/>
+                <field name="partner_ticket_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_insider_ticket_form" model="ir.ui.view">
+        <field name="name">insider.ticket.form</field>
+        <field name="model">insider.ticket</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_find_similar" type="object"
+                            string="Find Similar" class="btn-secondary"/>
+                    <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Ticket subject"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="reference"/>
+                            <field name="partner_id"/>
+                            <field name="priority" widget="priority"/>
+                            <field name="tag_ids" widget="many2many_tags"/>
+                            <!-- PERF BUG #8 -->
+                            <field name="duplicate_of_id"/>
+                        </group>
+                        <group>
+                            <field name="sla_deadline"/>
+                            <field name="is_late"/>
+                            <field name="sla_note"/>
+                            <field name="partner_ticket_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Screenshot">
+                            <field name="screenshot" widget="image"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_insider_ticket_search" model="ir.ui.view">
+        <field name="name">insider.ticket.search</field>
+        <field name="model">insider.ticket</field>
+        <field name="arch" type="xml">
+            <search>
+                <!-- PERF BUG #3a/#4 -->
+                <field name="reference"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <filter string="Late" name="late" domain="[('is_late', '=', True)]"/>
+                <group>
+                    <filter string="Customer" name="group_partner"
+                            context="{'group_by': 'partner_id'}"/>
+                    <filter string="State" name="group_state"
+                            context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_insider_ticket" model="ir.actions.act_window">
+        <field name="name">Tickets</field>
+        <field name="res_model">insider.ticket</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- PERF BUG #2 -->
+    <record id="view_res_partner_slowdesk_list" model="ir.ui.view">
+        <field name="name">res.partner.slowdesk.list</field>
+        <field name="model">res.partner</field>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="display_name"/>
+                <field name="email"/>
+                <field name="insider_ticket_count"/>
+                <field name="insider_open_late_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_slowdesk_partners" model="ir.actions.act_window">
+        <field name="name">Customers (Slowdesk)</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_res_partner_slowdesk_list"/>
+    </record>
+
+    <menuitem id="menu_slowdesk_root" name="Slowdesk" sequence="60"/>
+    <menuitem id="menu_slowdesk_tickets" name="Tickets"
+              parent="menu_slowdesk_root" action="action_insider_ticket" sequence="10"/>
+    <menuitem id="menu_slowdesk_partners" name="Customers"
+              parent="menu_slowdesk_root" action="action_slowdesk_partners" sequence="20"/>
+
+</odoo>

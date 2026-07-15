@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="seq_insider_ticket" model="ir.sequence">
+        <field name="name">Insider Ticket</field>
+        <field name="code">insider.ticket</field>
+        <field name="prefix">TKT-</field>
+        <field name="padding">6</field>
+    </record>
+
+    <!-- PERF BUG #5 -->
+    <record id="cron_insider_check_sla" model="ir.cron">
+        <field name="name">Slowdesk: check SLA</field>
+        <field name="model_id" ref="model_insider_ticket"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_check_sla()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="tag_bug" model="insider.ticket.tag">
+        <field name="name">Bug</field>
+        <field name="color">1</field>
+    </record>
+    <record id="tag_config" model="insider.ticket.tag">
+        <field name="name">Configuration</field>
+        <field name="color">4</field>
+    </record>
+    <record id="tag_training" model="insider.ticket.tag">
+        <field name="name">Training</field>
+        <field name="color">10</field>
+    </record>
+
+</odoo>
