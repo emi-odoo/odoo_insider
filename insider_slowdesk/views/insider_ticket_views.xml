@@ -5,7 +5,6 @@
         <field name="name">insider.ticket.list</field>
         <field name="model">insider.ticket</field>
         <field name="arch" type="xml">
-            <!-- PERF BUG #7 -->
             <list>
                 <field name="reference"/>
                 <field name="name"/>
@@ -14,7 +13,6 @@
                 <field name="priority" widget="priority"/>
                 <field name="sla_deadline"/>
                 <field name="is_late"/>
-                <field name="partner_ticket_count"/>
             </list>
         </field>
     </record>
@@ -39,7 +37,6 @@
                             <field name="partner_id"/>
                             <field name="priority" widget="priority"/>
                             <field name="tag_ids" widget="many2many_tags"/>
-                            <!-- PERF BUG #8 -->
                             <field name="duplicate_of_id"/>
                         </group>
                         <group>
@@ -67,7 +64,6 @@
         <field name="model">insider.ticket</field>
         <field name="arch" type="xml">
             <search>
-                <!-- PERF BUG #3a/#4 -->
                 <field name="reference"/>
                 <field name="name"/>
                 <field name="partner_id"/>
@@ -88,7 +84,6 @@
         <field name="view_mode">list,form</field>
     </record>
 
-    <!-- PERF BUG #2 -->
     <record id="view_res_partner_slowdesk_list" model="ir.ui.view">
         <field name="name">res.partner.slowdesk.list</field>
         <field name="model">res.partner</field>
